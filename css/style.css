@@ -1,0 +1,148 @@
+header {
+  background-color: rgb(49, 49, 49);
+  height: 40px;
+}
+
+header p {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.body {
+  /* width: 960px; */
+  background-color: rgb(49, 49, 49);
+}
+
+.management_screen {
+  display: flex;
+}
+
+.menu {
+  color: #FFF;
+  width: 240px;
+  background-color: #555555;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-left: 30px;
+}
+
+.menu p {
+  font-size: 24px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.menu li {
+  color: #494949;
+  list-style: none;
+  font-weight: bold;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+	width: 100px;
+  height: 30px;
+	border-radius: 6px;
+	text-align: center;
+  background-color: #EEE;
+  margin-bottom: 20px;
+}
+
+.focus_btn {
+  font-weight: bold;
+	width: 100px;
+  height: 30px;
+	border-radius: 6px;
+	text-align: center;
+  background-color: #EEE;
+  margin-bottom: 20px;
+}
+
+#import_btn {
+  color: rgb(54, 255, 154);
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 40px;
+  margin-bottom: 40px;
+}
+
+.data {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+#cow_number {
+  height: 30px;
+}
+
+table th {
+  padding : 10px 10px;
+}
+
+table td {
+  padding : 10px 10px;
+}
+
+input {
+  width: 100px;
+}
+
+.add_data, .delete_data {
+  color: #EEE;
+  padding: 0;
+	width: 50px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: lighter;
+  background-color: #494949;
+}
+
+.save_and_clear li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	text-align: center;
+  color: #EEE;
+	width: 180px;
+  height: 36px;
+  border-radius: 6px;
+  font-weight: bold;
+  background-color: #494949;
+  display:table-cell;
+  cursor: pointer;
+}
+
+.start {
+	background: #FFF;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 99;
+}
+
+.start p {
+	position: fixed;
+	left: 35%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
+	z-index: 99;
+	width: 280px;
+}
+
+footer {
+  height: 40px;
+  background-color: #494949;
+  color: white;
+  font-size: 18px;
+  line-height: 100%;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}

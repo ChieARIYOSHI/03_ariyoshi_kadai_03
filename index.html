@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/favicon.ico">
+    <title>発情牛を見つけよう！</title>
+  </head>
+
+  <body>
+    <header>
+      <!-- ヘッダーに入れる項目はまだ決まっていません。 -->
+    </header>
+
+    <div class="start">
+      <p><img src="img/favicon.png" alt="牛のアイコン"></p>
+    </div>
+    
+    <main class="management_screen">
+      <div class="menu">
+        <p>三苫牧場</p>
+        <p>牛番号</p>
+          <ul>
+            <li id="cow_101">101</li>
+            <li id="cow_102">102</li>
+            <li id="cow_103">103</li>
+            <li id="cow_104">104</li>
+            <li id="cow_105">105</li>
+            <li id="cow_106">106</li>
+            <li id="cow_107">107</li>
+            <li id="cow_108">108</li>
+          </ul>
+          <a id="import_btn" href="">DATA IMPORT</a>
+      </div>
+      <div class="data">
+        <p id="cow_number"></p>
+        <table>
+          <tr>
+            <th>＃</th> <th>年月日</th> <th>時間</th> <th></th> <th></th>
+          </tr>
+          <tr>
+            <td>1</td> <td><input type="text" id="yyyymmdd"></td> <td><input type="text" id="hhmmss"></td> <td class="add_data">追加</td> <td class="delete_data">削除</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="save_and_clear">
+        <ul>
+          <li id="save">データ保存</li>
+          <!-- <li id="clear">クリア</li> -->
+        </ul>
+      </div>
+    </main>
+
+    <footer>
+      <p>copyrights 2020 Arilyn Inc. All Rights Reserved.</p>
+    </footer>
+
+    <!-- ここからjavascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $(function() {
+        setTimeout(function() {
+          $('.start p').fadeIn(1600);
+        }, 500);
+        setTimeout(function() {
+          $('.start').fadeOut(500);
+        }, 2500);
+      });
+      
+      $(function () {
+        // 牛番号のデータ作成
+        const classes = [
+          {cow_id: '101', time01: 'yyyymmddhhmmss', time02: 'yyyymmddhhmmss', time03: 'yyyymmddhhmmss', time04: 'yyyymmddhhmmss', time05: 'yyyymmddhhmmss', time06: 'yyyymmddhhmmss', time07: 'yyyymmddhhmmss', time08: 'yyyymmddhhmmss', time09: 'yyyymmddhhmmss', time10: 'yyyymmddhhmmss'},
+          {cow_id: '102', time01: 'yyyymmddhhmmss', time02: 'yyyymmddhhmmss', time03: 'yyyymmddhhmmss', time04: 'yyyymmddhhmmss', time05: 'yyyymmddhhmmss', time06: 'yyyymmddhhmmss', time07: 'yyyymmddhhmmss', time08: 'yyyymmddhhmmss', time09: 'yyyymmddhhmmss', time10: 'yyyymmddhhmmss'},
+          {cow_id: '103', time01: 'yyyymmddhhmmss', time02: 'yyyymmddhhmmss', time03: 'yyyymmddhhmmss', time04: 'yyyymmddhhmmss', time05: 'yyyymmddhhmmss', time06: 'yyyymmddhhmmss', time07: 'yyyymmddhhmmss', time08: 'yyyymmddhhmmss', time09: 'yyyymmddhhmmss', time10: 'yyyymmddhhmmss'},
+          {cow_id: '104', time01: 'yyyymmddhhmmss', time02: 'yyyymmddhhmmss', time03: 'yyyymmddhhmmss', time04: 'yyyymmddhhmmss', time05: 'yyyymmddhhmmss', time06: 'yyyymmddhhmmss', time07: 'yyyymmddhhmmss', time08: 'yyyymmddhhmmss', time09: 'yyyymmddhhmmss', time10: 'yyyymmddhhmmss'},
+          {cow_id: '105', time01: 'yyyymmddhhmmss', time02: 'yyyymmddhhmmss', time03: 'yyyymmddhhmmss', time04: 'yyyymmddhhmmss', time05: 'yyyymmddhhmmss', time06: 'yyyymmddhhmmss', time07: 'yyyymmddhhmmss', time08: 'yyyymmddhhmmss', time09: 'yyyymmddhhmmss', time10: 'yyyymmddhhmmss'},
+          {cow_id: '106', time01: 'yyyymmddhhmmss', time02: 'yyyymmddhhmmss', time03: 'yyyymmddhhmmss', time04: 'yyyymmddhhmmss', time05: 'yyyymmddhhmmss', time06: 'yyyymmddhhmmss', time07: 'yyyymmddhhmmss', time08: 'yyyymmddhhmmss', time09: 'yyyymmddhhmmss', time10: 'yyyymmddhhmmss'},
+          {cow_id: '107', time01: 'yyyymmddhhmmss', time02: 'yyyymmddhhmmss', time03: 'yyyymmddhhmmss', time04: 'yyyymmddhhmmss', time05: 'yyyymmddhhmmss', time06: 'yyyymmddhhmmss', time07: 'yyyymmddhhmmss', time08: 'yyyymmddhhmmss', time09: 'yyyymmddhhmmss', time10: 'yyyymmddhhmmss'},
+          {cow_id: '108', time01: 'yyyymmddhhmmss', time02: 'yyyymmddhhmmss', time03: 'yyyymmddhhmmss', time04: 'yyyymmddhhmmss', time05: 'yyyymmddhhmmss', time06: 'yyyymmddhhmmss', time07: 'yyyymmddhhmmss', time08: 'yyyymmddhhmmss', time09: 'yyyymmddhhmmss', time10: 'yyyymmddhhmmss'},
+        ];
+      
+        $('#cow_101').on('click', function() {
+        $('#cow_number').html(classes[0].cow_id + 'の記録');
+        });
+      
+        $('#cow_102').on('click', function() {
+        $('#cow_number').html(classes[1].cow_id + 'の記録');
+        });
+      
+        $('#cow_103').on('click', function() {
+        $('#cow_number').html(classes[2].cow_id + 'の記録');
+        });
+      
+        $('#cow_104').on('click', function() {
+        $('#cow_number').html(classes[3].cow_id + 'の記録');
+        });
+      
+        $('#cow_105').on('click', function() {
+        $('#cow_number').html(classes[4].cow_id + 'の記録');
+        });
+      
+        $('#cow_106').on('click', function() {
+        $('#cow_number').html(classes[5].cow_id + 'の記録');
+        });
+      
+        $('#cow_107').on('click', function() {
+        $('#cow_number').html(classes[6].cow_id + 'の記録');
+        });
+      
+        $('#cow_108').on('click', function() {
+        $('#cow_number').html(classes[7].cow_id + 'の記録');
+        });
+      });
+
+      $(function () {
+
+        //1.Save クリックイベント
+        $('#save').on('click', function() {
+            const data = {
+                date: $('#yyyymmdd').val(),
+                time: $('#hhmmss').val(),
+            };
+            const jsonData = JSON.stringify(data);
+            localStorage.setItem('mount', jsonData);
+            console.log(data);
+            console.log(jsonData);
+        });
+
+        //2.clear クリックイベント
+        // $('#clear').on('click', function() {
+        //     localStorage.removeItem('momo');
+        //     $('#yyyymmdd').val('');
+        //     $('#hhmmss').val('');
+        // })
+
+        //3.ページ読み込み：保存データ取得表示
+        if(localStorage.getItem('mount')) {
+            const jsonData = localStorage.getItem('mount');
+            const data = JSON.parse(jsonData);
+            $('#yyyymmdd').val(data.date);
+            $('#hhmmss').val(data.time);
+        }
+      });
+
+    </script>
+
+  </body>
+</html>
