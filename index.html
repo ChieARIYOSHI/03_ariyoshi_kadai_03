@@ -18,7 +18,7 @@
       <p><img src="img/favicon.png" alt="牛のアイコン"></p>
     </div>
     
-    <main class="management_screen">
+    <main class="control_screen">
       <div class="menu">
         <p>三苫牧場</p>
         <p>牛番号</p>
@@ -36,14 +36,26 @@
       </div>
       <div class="data">
         <p id="cow_number"></p>
-        <table>
-          <tr>
-            <th>＃</th> <th>年月日</th> <th>時間</th> <th></th> <th></th>
-          </tr>
-          <tr>
-            <td>1</td> <td><input type="text" id="yyyymmdd"></td> <td><input type="text" id="hhmmss"></td> <td class="add_data">追加</td> <td class="delete_data">削除</td>
-          </tr>
-        </table>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>＃</th> <th>年月日</th> <th>時間</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td> <td><input type="text" id="yyyymmdd_101[]"></td> <td><input type="text" id="hhmmss_101[]"></td> 
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td><button id="add" type="button">追加</button></td>
+                <td><button id="delete" type="button">削除</button></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
       </div>
 
       <div class="save_and_clear">
@@ -117,12 +129,10 @@
       });
 
       $(function () {
-
-        //1.Save クリックイベント
         $('#save').on('click', function() {
             const data = {
-                date: $('#yyyymmdd').val(),
-                time: $('#hhmmss').val(),
+                date: $('#yyyymmdd_101[]').val(),
+                time: $('#hhmmss_101[]').val(),
             };
             const jsonData = JSON.stringify(data);
             localStorage.setItem('mount', jsonData);
@@ -137,16 +147,27 @@
         //     $('#hhmmss').val('');
         // })
 
-        //3.ページ読み込み：保存データ取得表示
         if(localStorage.getItem('mount')) {
             const jsonData = localStorage.getItem('mount');
             const data = JSON.parse(jsonData);
-            $('#yyyymmdd').val(data.date);
-            $('#hhmmss').val(data.time);
+            $('#yyyymmdd_101[]').val(data.date);
+            $('#hhmmss_101[]').val(data.time);
         }
       });
 
+      $(function() {
+        $('button#add').click(function(){
+          let tr_form = '' +
+          '<tr>' +
+          '<td></td>' +
+          '<td><input type="text" name="yyyymmdd_101[]"></td>' +
+          '<td><input type="text" name="hhmmss_101[]"></td>' +
+          '</tr>';
+          $(tr_form).appendTo($('table > tbody'));
+        });
+      });
     </script>
 
   </body>
+
 </html>
